@@ -15,7 +15,7 @@ import java.util.Date;
  *
  * @author Vaibhav Biturwar
  */
-public class dbsend {
+public class DBSend {
         Statement stmt;
         Connection con;
         ResultSet res;
@@ -126,7 +126,7 @@ public class dbsend {
 
 public static void main(String [] args) throws ParseException
 {
-    dbsend sd = new dbsend();
+    DBSend sd = new DBSend();
     
     //int x = sd.entry("CG 04 MF 8502");
   
