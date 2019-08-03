@@ -116,33 +116,78 @@ public class DBSend {
     }
     
     
+    public String[][] garage()
+    {
+         DBSend sd = new DBSend();
+         String values[][]= new String[sd.instance()][2];
+         try
+        {
+         String uid = "root";
+         String pwd ="";
+         con=DriverManager.getConnection("jdbc:mysql://localhost:3306/parking",uid,pwd) ; 
+         stmt= con.createStatement();
+   
+         String query = "SELECT no , time FROM park";
+         res = stmt.executeQuery(query);
+         
+         int i=0;
+         while(res.next())
+         {
+             values[i][0] = res.getString("no");
+             values[i][1] = res.getString("time");
+             //System.out.println(values[1][i]);
+             i++;
+         }
+         
+         return values;
+         
+        }
+        catch(Exception e)
+        {
+            System.out.println("Error In connection" + e.getMessage());
+            return values;
+        }
+        
+    
+    }
     
     
     
     
     
-    
-    
+ /*   
 
 public static void main(String [] args) throws ParseException
 {
     DBSend sd = new DBSend();
     
-    //int x = sd.entry("CG 04 MF 8502");
+    
+    String values[][] = sd.garage();
+    for(String x[] : values)
+    {
+        for(String z : x)
+        {
+            System.out.print(z+"|");
+        }
+        System.out.println();
+    }
+    
+    
+    //int x = sd.entry("CG 04 DK 5432 ");
   
-   /*
+   
     String values[] =sd.exit("CG 04 MF 8502");
     for(String x : values)
     {
         System.out.println(x);
     }
-   */
+   
    //System.out.println(sd.instance());
     
     
 
 }
-
+*/
     }
     
     
