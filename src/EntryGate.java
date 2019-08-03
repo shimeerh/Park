@@ -10,6 +10,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
+
+import ch.qos.logback.classic.db.names.ColumnName;
+
 import javax.swing.JTable;
 import javax.swing.BoxLayout;
 import javax.swing.border.BevelBorder;
@@ -27,9 +31,9 @@ public class EntryGate extends JFrame{
 
 	private JTable numTable;
 	private JLabel vacant;
-	private final Action action = new SwingAction();
 	DBSend db = new DBSend();
 	int count= db.instance(),vacantSpace =db.total - count;
+	DefaultTableModel model;
 	
 
 //	public static void main(String[] args) {
@@ -52,16 +56,20 @@ public class EntryGate extends JFrame{
 		
 
    
-		 String[][] data = db.garage();
+		 String[][] data = {};
 		  
-		 // Column Names 
+//		 // Column Names 
 		 String[] columnNames = { "SerialNo.", "LicencePlate", "InTime"}; 
-		 numTable=new JTable(data,columnNames);
+		 numTable=new JTable(new DefaultTableModel(data,columnNames));
+		 model = (DefaultTableModel) numTable.getModel();
+		 model.addRow(columnNames);
 		 numTable.setBounds(10,100, 448,140);
-		// numTable.getPreferredSize();
-////		 adding it to JScrollPane 
-	   // JScrollPane sp = new JScrollPane(numTable); 
-	     //add(sp); 
+		 numTable.getPreferredSize();
+//		 adding it to JScrollPane 
+	    JScrollPane sp = new JScrollPane(numTable); 
+	     add(sp); 
+		 
+		 
         vacant=new JLabel();
 	     vacant.setText("Car Entry Check");
 	     vacant.setFont(new Font("Serif", Font.PLAIN, 28));
