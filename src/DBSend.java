@@ -144,7 +144,7 @@ public class DBSend {
          int i=0;
          while(res.next())
          {
-        	 values[i][0] = Integer.toString(res.getInt("id"));
+        	 values[i][0] = Integer.toString(res.getInt("id")-1);
              values[i][1] = res.getString("no");
              values[i][2] = res.getString("time");
              //System.out.println(values[1][i]);
