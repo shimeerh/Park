@@ -34,8 +34,8 @@ public class EntryGate extends JFrame{
 	DBSend db = new DBSend();
 	int count= db.instance(),vacantSpace =db.total - count;
 	DefaultTableModel model;
-	
-
+	JLabel lblCount;
+	JLabel lblVacant;
 //	public static void main(String[] args) {
 //		
 //				try {
@@ -80,22 +80,22 @@ public class EntryGate extends JFrame{
 		
 		JPanel internal_panel = new JPanel();
 		internal_panel.setBorder(new BevelBorder(BevelBorder.RAISED));
-		internal_panel.setBounds(541, 95, 179, 127);
+		internal_panel.setBounds(541, 95, 190, 127);
 		getContentPane().add(internal_panel);
 		internal_panel.setLayout(null);
 		
-		JLabel lblVacant = new JLabel("Vacant\n" + vacantSpace);
-		lblVacant.setBounds(12, 2, 49, 98);
+		lblVacant = new JLabel("Vacant->" + vacantSpace);
+		lblVacant.setBounds(12, 2, 82, 98);
 		lblVacant.setFont(new Font("Stencil", Font.PLAIN, 13));
 		internal_panel.add(lblVacant);
 		
-		JLabel lblCount = new JLabel("Count\n" + count);
-		lblCount.setBounds(125, 2, 42, 98);
+		lblCount = new JLabel("Count->" + count);
+		lblCount.setBounds(106, 2, 70, 98);
 		lblCount.setFont(new Font("Stencil", Font.PLAIN, 13));
 		internal_panel.add(lblCount);
 		
 		JButton checkB = new JButton("Check");
-		checkB.setBounds(2, 100, 175, 25);
+		checkB.setBounds(2, 100, 184, 25);
 		checkB.setBackground(Color.CYAN);
 		internal_panel.add(checkB);
 		

@@ -81,7 +81,7 @@ public class DBSend {
          values[0] = no;
          values[1] = in_time;
          values[2] = out_time;
-         values[3] = Double.toString(difference);
+         values[3] = Integer.toString((int) difference);
          
          query = "DELETE FROM park WHERE id = "+id+";";
          stmt.executeUpdate(query);

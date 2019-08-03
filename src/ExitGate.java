@@ -129,7 +129,7 @@ public class ExitGate extends JFrame {
             textFieldIn.setText(res[1]);
             outtime.setText(res[2]);
             txtdur.setText(res[3]);
-            txtfee.setText(Integer.parseInt(res[3])*3+"Rs");
+            txtfee.setText(Integer.toString(Integer.parseInt(res[3])*3) + "Rs");
             
             	
             }
