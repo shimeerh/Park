@@ -14,6 +14,7 @@ import javax.swing.JTextField;
 import java.awt.Color;
 import javax.swing.border.MatteBorder;
 
+@SuppressWarnings("serial")
 public class ExitGate extends JFrame {
 
 	private JPanel contentPane;
@@ -22,6 +23,7 @@ public class ExitGate extends JFrame {
 
 
 	public ExitGate() {
+		super("Exit");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 700, 473);
 		contentPane = new JPanel();

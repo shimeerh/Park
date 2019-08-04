@@ -13,6 +13,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 
 
+@SuppressWarnings("serial")
 public class EntryGate extends JFrame{
 
 	private JTable numTable;
@@ -35,7 +36,7 @@ public class EntryGate extends JFrame{
 //			}
 	
 	public EntryGate() {
-		super("Vacant");
+		super("Entry");
 		getContentPane().setBackground(new Color(0, 51, 51));
 		setType(Type.POPUP);
 		setResizable(false);
@@ -75,7 +76,7 @@ public class EntryGate extends JFrame{
 		vacantLb.setBackground(new Color(204, 255, 255));
 		vacantLb.setFont(new Font("Arial", Font.BOLD, 24));
 		
-		countLb = new JLabel("Filled->2");
+		countLb = new JLabel("Filled->" + count);
 		countLb.setForeground(new Color(255, 0, 0));
 		countLb.setBounds(546, 177, 105, 29);
 		getContentPane().add(countLb);
