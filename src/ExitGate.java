@@ -37,9 +37,7 @@ public class ExitGate extends JFrame {
 	public static void main(String[] args) {
 		
 			
-					ExitGate frame = new ExitGate();
-					frame.setVisible(true);
-					frame.setSize(800,500);
+					
 				
 	
 	}

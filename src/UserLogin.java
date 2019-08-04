@@ -20,7 +20,7 @@ public class UserLogin extends JFrame {
 	private JPanel contentPane;
 	private final JTextField namefield = new JTextField();
 	private JPasswordField passfield;
-
+	 int status;
 	/**
 	 * Launch the application.
 	 */
@@ -87,13 +87,16 @@ public class UserLogin extends JFrame {
              ResultSet results = ps1.executeQuery(); 
 
               if (results.next()) {
-                     int i = results.getInt("exists");
-                if(i==1)
+                    status = results.getInt("exists");
+                if(status==1)
 
              {
-                	Main.main(new String[] {});
-                	//JOptionPane.showMessageDialog(null,"pass");
+                	JOptionPane.showMessageDialog(null,"pass");
                 	dispose();
+                	ExitGate Eframe = new ExitGate();
+					Eframe.setVisible(true);
+					Eframe.setSize(800,500);
+
              }
                 else
                 	JOptionPane.showMessageDialog(null,"Fail");
