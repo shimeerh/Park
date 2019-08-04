@@ -29,7 +29,7 @@ public class Main {
 			eg.model.addRow(rowData[i-1]);
 			eg.count++;
 			eg.vacantSpace--;
-			eg.countLb.setText("Count->" + Integer.toString( eg.count));
+			eg.countLb.setText("Filled->" + Integer.toString( eg.count));
 			eg.vacantLb.setText("Vacant->" + Integer.toString( eg.vacantSpace));
 			
 		}

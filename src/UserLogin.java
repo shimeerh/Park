@@ -16,6 +16,7 @@ import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.Font;
 
+@SuppressWarnings("serial")
 public class UserLogin extends JFrame {
 
 	private JPanel contentPane;
@@ -40,6 +41,7 @@ public class UserLogin extends JFrame {
 
 	
 	public UserLogin() {
+		super("Login");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -96,7 +98,7 @@ public class UserLogin extends JFrame {
                 status = results.getInt("exists");
                 if(status==1)
                 {
-                	JOptionPane.showMessageDialog(null,"pass");
+//                	JOptionPane.showMessageDialog(null,"pass");
                 	dispose();
                 	ExitGate Eframe = new ExitGate();
 					Eframe.setVisible(true);
@@ -104,7 +106,7 @@ public class UserLogin extends JFrame {
 
                 }
                 else
-                	JOptionPane.showMessageDialog(null,"Fail");
+                	JOptionPane.showMessageDialog(null,"Incorrect email id or password, Please try again!");
               	}
 
             }catch(Exception e1) {
