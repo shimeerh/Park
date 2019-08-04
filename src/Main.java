@@ -22,14 +22,17 @@ public class Main {
 			s = s.replaceAll("[^a-zA-Z0-9_-]", "");
 			System.out.println(s);
 			int status = db.entry(s);
-			System.out.println(status);
+			if(status == 1) {
+				System.out.println("Inserted");
+			}
 			String rowData[][] = db.garage();
+//			System.out.println(rowData.length);
 			Thread.sleep(2000);
-			eg.model.addRow(rowData[i]);
+			eg.model.addRow(rowData[i-1]);
 			eg.count++;
 			eg.vacantSpace--;
-			eg.lblCount.setText("Count->" + Integer.toString( eg.count - 1));
-			eg.lblVacant.setText("Vacant->" + Integer.toString( eg.vacantSpace +1));
+			eg.lblCount.setText("Count->" + Integer.toString( eg.count));
+			eg.lblVacant.setText("Vacant->" + Integer.toString( eg.vacantSpace));
 			
 		}
 	}
