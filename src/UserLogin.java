@@ -22,10 +22,8 @@ public class UserLogin extends JFrame {
 	private JPanel contentPane;
 	private final JTextField namefield = new JTextField();
 	private JPasswordField passfield;
-	 int status;
-	/**
-	 * Launch the application.
-	 */
+	int status;
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -45,8 +43,7 @@ public class UserLogin extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(0, 51, 51));
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setBackground(new Color(0, 51, 51));		
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		namefield.setText("Enter username");
@@ -67,12 +64,13 @@ public class UserLogin extends JFrame {
 		contentPane.add(lbpass);
 		
 		passfield = new JPasswordField();
+		passfield.setText("Enter Password");
 		passfield.setBounds(198, 141, 116, 22);
 		contentPane.add(passfield);
 		
 		JButton btnok = new JButton("Verify");
 		btnok.setBackground(new Color(204, 255, 255));
-		btnok.setBounds(166, 202, 97, 25);
+		btnok.setBounds(125, 197, 97, 25);
 		contentPane.add(btnok);
 		
 		btnok.addActionListener(new ActionListener() {

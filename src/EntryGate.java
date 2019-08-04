@@ -58,8 +58,8 @@ public class EntryGate extends JFrame{
 		 vacant=new JLabel();
 		 vacant.setForeground(new Color(255, 255, 255));
 		 vacant.setText("Car Entry Check");
-		 vacant.setFont(new Font("Serif", Font.PLAIN, 28));
-		 vacant.setBounds(200, 20,  263, 40);
+		 vacant.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		 vacant.setBounds(133, 23,  263, 40);
 		 getContentPane().add(vacant);
 
 		getContentPane().add(numTable);
@@ -71,16 +71,16 @@ public class EntryGate extends JFrame{
 		
 		vacantLb = new JLabel("Vacant->" + vacantSpace);
 		vacantLb.setForeground(new Color(0, 255, 51));
-		vacantLb.setBounds(541, 119, 139, 29);
+		vacantLb.setBounds(559, 144, 171, 29);
 		getContentPane().add(vacantLb);
 		vacantLb.setBackground(new Color(204, 255, 255));
-		vacantLb.setFont(new Font("Arial", Font.BOLD, 24));
+		vacantLb.setFont(new Font("Tahoma", Font.BOLD, 24));
 		
 		countLb = new JLabel("Filled->" + count);
 		countLb.setForeground(new Color(255, 0, 0));
-		countLb.setBounds(546, 177, 105, 29);
+		countLb.setBounds(559, 211, 155, 29);
 		getContentPane().add(countLb);
-		countLb.setFont(new Font("Arial", Font.BOLD, 24));
+		countLb.setFont(new Font("Tahoma", Font.BOLD, 24));
 		
 		btnExit.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {

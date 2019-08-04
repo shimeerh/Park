@@ -34,13 +34,13 @@ public class ExitGate extends JFrame {
 		
 		JButton showB = new JButton("show");
 		showB.setBackground(new Color(204, 255, 255));
-		showB.setBounds(376, 87, 97, 25);
+		showB.setBounds(321, 151, 90, 25);
 		showB.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
 		contentPane.add(showB);
 		
 		JButton exitB = new JButton("Exit");
 		exitB.setBackground(new Color(204, 255, 255));
-		exitB.setBounds(289, 388, 97, 25);
+		exitB.setBounds(314, 388, 97, 25);
 		exitB.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
 
 		contentPane.add(exitB);
@@ -50,11 +50,11 @@ public class ExitGate extends JFrame {
 		JLabel LicenceNolb = new JLabel("Licence Number");
 		LicenceNolb.setForeground(new Color(255, 255, 255));
 		LicenceNolb.setFont(new Font("Stencil", Font.PLAIN, 15));
-		LicenceNolb.setBounds(53, 84, 148, 35);
+		LicenceNolb.setBounds(200, 103, 148, 35);
 		contentPane.add(LicenceNolb);
 		
 		licencetext= new JTextField("Enter here");
-		licencetext.setBounds(213, 88, 116, 22);
+		licencetext.setBounds(386, 107, 116, 22);
 		contentPane.add(licencetext);
 		licencetext.setColumns(10);
 		
@@ -101,6 +101,12 @@ public class ExitGate extends JFrame {
 		txtfee.setBounds(539, 316, 116, 22);
 		contentPane.add(txtfee);
 		txtfee.setColumns(10);
+		
+		JLabel lbhead = new JLabel("Parking Fee Generator");
+		lbhead.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		lbhead.setForeground(Color.WHITE);
+		lbhead.setBounds(237, 13, 258, 35);
+		contentPane.add(lbhead);
 		
 		showB.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
