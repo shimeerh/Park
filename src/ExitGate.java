@@ -16,6 +16,8 @@ import javax.swing.JSplitPane;
 import javax.swing.JButton;
 import javax.swing.JTextArea;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.JTextField;
 
@@ -35,9 +37,7 @@ public class ExitGate extends JFrame {
 	public static void main(String[] args) {
 		
 			
-					ExitGate frame = new ExitGate();
-					frame.setVisible(true);
-					frame.setSize(800,500);
+					
 				
 	
 	}
@@ -51,13 +51,7 @@ public class ExitGate extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		numTable = new JTable();
-		numTable.setBounds(58, 0, 268, 240);
-		String[][] data = { 
-	            { "1", "KA04DD1444", "08:30" ,"100"}, 
-	            { "2", "CG05MA6014", "9:00","200" } 
-	        }; 
-	  
+		
 	 // Column Names 
 	 String[] columnNames = {"LicencePlate", "InTime","OutTime","ParkingFee"};
 		
@@ -126,16 +120,25 @@ public class ExitGate extends JFrame {
             String licence=licencetext.getText();
             DBSend db=new DBSend();
             String[] res=db.exit(licence);
-            textFieldIn.setText(res[1]);
-            outtime.setText(res[2]);
-            txtdur.setText(res[3]);
-            txtfee.setText(Integer.parseInt(res[3])*3+"Rs");
-            
+            if(res != null) {
+            	textFieldIn.setText(res[1]);
+            	outtime.setText(res[2]);
+            	txtdur.setText(res[3]);
+            	txtfee.setText(Integer.toString(Integer.parseInt(res[3])*3) + "Rs");
+            } else {
+            	JOptionPane.showMessageDialog(null, "Car Not Found! Please Check the entered number");
+            }
             	
             }
             	
             });
-            
+		exitB.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+            	System.exit(0);
+            	dispose();	
+            }
+            	
+            });   
 		
 	}
 }

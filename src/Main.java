@@ -5,9 +5,7 @@ public class Main {
 
 	public static void main(String[] args) throws InterruptedException {
 		ImageToText ob = new ImageToText();
-//		String s = ob.getText("C:\\Users\\shime\\eclipse-workspace\\ParkingSpaceAnalyser\\sample images\\" + "2.jpeg");
-//		s = s.replaceAll("[^a-zA-Z0-9_-]", "");
-//		System.out.println(s);
+
 		DBSend db = new DBSend();
 		EntryGate eg=new EntryGate();
 		eg.setVisible(true);
@@ -22,11 +20,17 @@ public class Main {
 			s = s.replaceAll("[^a-zA-Z0-9_-]", "");
 			System.out.println(s);
 			int status = db.entry(s);
-			Thread.sleep(10000);
-			System.out.println(status);
+			if(status == 1) {
+				System.out.println("Inserted");
+			}
 			String rowData[][] = db.garage();
-			Thread.sleep(10000);
-			eg.model.addRow(rowData[i]);
+//			System.out.println(rowData.length);
+			Thread.sleep(2000);
+			eg.model.addRow(rowData[i-1]);
+			eg.count++;
+			eg.vacantSpace--;
+			eg.lblCount.setText("Count->" + Integer.toString( eg.count));
+			eg.lblVacant.setText("Vacant->" + Integer.toString( eg.vacantSpace));
 			
 		}
 	}

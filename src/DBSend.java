@@ -2,7 +2,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
 import java.sql.ResultSet;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 /*
@@ -18,17 +17,17 @@ import java.util.Date;
 public class DBSend {
         Statement stmt;
         ResultSet res;
-        DB_conn db = new DB_conn();
+        //DB_conn db = new DB_conn();
 		Connection con;
 		final int total = 250;
         
     public int entry(String s){
         try
         {
-//         String uid = "root";
-//         String pwd ="";
-//         con=DriverManager.getConnection("jdbc:mysql://localhost:3306/parking",uid,pwd) ; 
-        	con = db.getConnection();
+         String uid = "root";
+         String pwd ="root";
+         con=DriverManager.getConnection("jdbc:mysql://localhost:3306/parking",uid,pwd) ; 
+        	//con = db.getConnection();
          stmt= con.createStatement();
          
          SimpleDateFormat sdfDate = new SimpleDateFormat("HH:mm:ss");//dd/MM/yyyy
@@ -53,10 +52,10 @@ public class DBSend {
     public String[] exit(String s){
         try
         {
-//         String uid = "root";
-//         String pwd ="";
-//         con=DriverManager.getConnection("jdbc:mysql://localhost:3306/parking",uid,pwd) ; 
-        	con = db.getConnection();
+         String uid = "root";
+         String pwd ="root";
+         con=DriverManager.getConnection("jdbc:mysql://localhost:3306/parking",uid,pwd) ; 
+        	//con = db.getConnection();
 
          stmt= con.createStatement();
          String query = "SELECT * FROM park WHERE no like'"+s+"'";
@@ -81,18 +80,19 @@ public class DBSend {
          values[0] = no;
          values[1] = in_time;
          values[2] = out_time;
-         values[3] = Double.toString(difference);
+         values[3] = Integer.toString((int) difference);
          
          query = "DELETE FROM park WHERE id = "+id+";";
-         stmt.executeUpdate(query);
-   
-         return values;
+         int status = stmt.executeUpdate(query);
+         if(status == 1)
+        	 return values;
+         else 
+        	 return null;
         }
         catch(Exception e)
         {
             System.out.println("Error In connection" + e.getMessage());
-            String values[] = new String[3];
-            return values;
+            return null;
         }
         
     }
@@ -102,10 +102,10 @@ public class DBSend {
     {
          try
         {
-//         String uid = "root";
-//         String pwd ="";
-//         con=DriverManager.getConnection("jdbc:mysql://localhost:3306/parking",uid,pwd) ; 
-         	con = db.getConnection();
+         String uid = "root";
+         String pwd ="root";
+         con=DriverManager.getConnection("jdbc:mysql://localhost:3306/parking",uid,pwd) ; 
+         	//con = db.getConnection();
 
          stmt= con.createStatement();
         
@@ -127,14 +127,15 @@ public class DBSend {
     
     public String[][] garage()
     {
-         DBSend sd = new DBSend();
-         String values[][]= new String[sd.instance()][3];
+//         DBSend sd = new DBSend();
+//         System.out.println("from instance - " + instance());
+         String values[][]= new String[instance()][3];
          try
         {
-//         String uid = "root";
-//         String pwd ="";
-//         con=DriverManager.getConnection("jdbc:mysql://localhost:3306/parking",uid,pwd) ; 
-         	con = db.getConnection();
+         String uid = "root";
+         String pwd ="root";
+         con=DriverManager.getConnection("jdbc:mysql://localhost:3306/parking",uid,pwd) ; 
+         	//con = db.getConnection();
 
          stmt= con.createStatement();
    
@@ -144,13 +145,13 @@ public class DBSend {
          int i=0;
          while(res.next())
          {
-        	 values[i][0] = Integer.toString(res.getInt("id")-1);
+        	 values[i][0] = Integer.toString(res.getInt("id"));
              values[i][1] = res.getString("no");
              values[i][2] = res.getString("time");
-             //System.out.println(values[1][i]);
+//             System.out.println(values[i]);
              i++;
+//             System.out.println("from garage - \n"+ values[i]);
          }
-         
          return values;
          
         }
@@ -200,20 +201,4 @@ public static void main(String [] args) throws ParseException
 
 }
 */
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
+}
