@@ -83,15 +83,16 @@ public class DBSend {
          values[3] = Integer.toString((int) difference);
          
          query = "DELETE FROM park WHERE id = "+id+";";
-         stmt.executeUpdate(query);
-   
-         return values;
+         int status = stmt.executeUpdate(query);
+         if(status == 1)
+        	 return values;
+         else 
+        	 return null;
         }
         catch(Exception e)
         {
             System.out.println("Error In connection" + e.getMessage());
-            String values[] = new String[3];
-            return values;
+            return null;
         }
         
     }

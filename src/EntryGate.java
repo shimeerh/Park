@@ -103,19 +103,20 @@ public class EntryGate extends JFrame{
 		btnExit.setBounds(189, 253, 97, 25);
 		getContentPane().add(btnExit);
 		
+		btnExit.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+            	System.exit(0);
+            	dispose();	
+            }
+            	
+            });   
 		
 	
 		
 		
 	    } 
-	private class SwingAction extends AbstractAction {
-		public SwingAction() {
-			putValue(NAME, "SwingAction");
-			putValue(SHORT_DESCRIPTION, "Some short description");
-		}
-		public void actionPerformed(ActionEvent e) {
-		}
-	}
+	
+	
 }
 
 	
