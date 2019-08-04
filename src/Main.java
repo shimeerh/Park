@@ -29,8 +29,8 @@ public class Main {
 			eg.model.addRow(rowData[i-1]);
 			eg.count++;
 			eg.vacantSpace--;
-			eg.lblCount.setText("Count->" + Integer.toString( eg.count));
-			eg.lblVacant.setText("Vacant->" + Integer.toString( eg.vacantSpace));
+			eg.countLb.setText("Count->" + Integer.toString( eg.count));
+			eg.vacantLb.setText("Vacant->" + Integer.toString( eg.vacantSpace));
 			
 		}
 	}

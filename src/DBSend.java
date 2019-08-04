@@ -4,20 +4,10 @@ import java.sql.Statement;
 import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
-/**
- *
- * @author Vaibhav Biturwar
- */
 public class DBSend {
         Statement stmt;
         ResultSet res;
-        //DB_conn db = new DB_conn();
 		Connection con;
 		final int total = 250;
         
@@ -27,7 +17,7 @@ public class DBSend {
          String uid = "root";
          String pwd ="root";
          con=DriverManager.getConnection("jdbc:mysql://localhost:3306/parking",uid,pwd) ; 
-        	//con = db.getConnection();
+       
          stmt= con.createStatement();
          
          SimpleDateFormat sdfDate = new SimpleDateFormat("HH:mm:ss");//dd/MM/yyyy
@@ -55,7 +45,6 @@ public class DBSend {
          String uid = "root";
          String pwd ="root";
          con=DriverManager.getConnection("jdbc:mysql://localhost:3306/parking",uid,pwd) ; 
-        	//con = db.getConnection();
 
          stmt= con.createStatement();
          String query = "SELECT * FROM park WHERE no like'"+s+"'";
@@ -105,7 +94,6 @@ public class DBSend {
          String uid = "root";
          String pwd ="root";
          con=DriverManager.getConnection("jdbc:mysql://localhost:3306/parking",uid,pwd) ; 
-         	//con = db.getConnection();
 
          stmt= con.createStatement();
         
@@ -127,15 +115,13 @@ public class DBSend {
     
     public String[][] garage()
     {
-//         DBSend sd = new DBSend();
-//         System.out.println("from instance - " + instance());
+//       System.out.println("from instance - " + instance());
          String values[][]= new String[instance()][3];
          try
         {
          String uid = "root";
          String pwd ="root";
          con=DriverManager.getConnection("jdbc:mysql://localhost:3306/parking",uid,pwd) ; 
-         	//con = db.getConnection();
 
          stmt= con.createStatement();
    
@@ -163,42 +149,4 @@ public class DBSend {
         
     
     }
-    
-    
-    
-    
-    
- /*   
-
-public static void main(String [] args) throws ParseException
-{
-    DBSend sd = new DBSend();
-    
-    
-    String values[][] = sd.garage();
-    for(String x[] : values)
-    {
-        for(String z : x)
-        {
-            System.out.print(z+"|");
-        }
-        System.out.println();
-    }
-    
-    
-    //int x = sd.entry("CG 04 DK 5432 ");
-  
-   
-    String values[] =sd.exit("CG 04 MF 8502");
-    for(String x : values)
-    {
-        System.out.println(x);
-    }
-   
-   //System.out.println(sd.instance());
-    
-    
-
-}
-*/
 }

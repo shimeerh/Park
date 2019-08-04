@@ -1,91 +1,74 @@
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JTable;
-import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-//import com.jgoodies.forms.layout.FormLayout;
-//import com.jgoodies.forms.layout.ColumnSpec;
-//import com.jgoodies.forms.layout.RowSpec;
-import javax.swing.JSplitPane;
 import javax.swing.JButton;
-import javax.swing.JTextArea;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 import java.awt.Font;
 import javax.swing.JTextField;
+import java.awt.Color;
+import javax.swing.border.MatteBorder;
 
 public class ExitGate extends JFrame {
 
 	private JPanel contentPane;
-	private JTable numTable;
 	private JTextField licencetext;
 	private JTextField textFieldIn;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		
-			
-					
-				
-	
-	}
 
 
 	public ExitGate() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 700, 473);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(0, 51, 51));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		
-	 // Column Names 
-	 String[] columnNames = {"LicencePlate", "InTime","OutTime","ParkingFee"};
-		
 		JButton showB = new JButton("show");
-		showB.setBounds(327, 84, 97, 25);
+		showB.setBackground(new Color(204, 255, 255));
+		showB.setBounds(376, 87, 97, 25);
+		showB.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
 		contentPane.add(showB);
 		
 		JButton exitB = new JButton("Exit");
+		exitB.setBackground(new Color(204, 255, 255));
 		exitB.setBounds(289, 388, 97, 25);
+		exitB.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
+
 		contentPane.add(exitB);
 		
 		
 		
 		JLabel LicenceNolb = new JLabel("Licence Number");
+		LicenceNolb.setForeground(new Color(255, 255, 255));
 		LicenceNolb.setFont(new Font("Stencil", Font.PLAIN, 15));
-		LicenceNolb.setBounds(12, 81, 148, 35);
+		LicenceNolb.setBounds(53, 84, 148, 35);
 		contentPane.add(LicenceNolb);
 		
-		licencetext= new JTextField();
-		licencetext.setBounds(159, 85, 116, 22);
+		licencetext= new JTextField("Enter here");
+		licencetext.setBounds(213, 88, 116, 22);
 		contentPane.add(licencetext);
 		licencetext.setColumns(10);
 		
 		JLabel LabelIn = new JLabel("In-Time");
+		LabelIn.setForeground(new Color(255, 255, 255));
 		 LabelIn.setFont(new Font("Stencil", Font.PLAIN, 15));
 		 LabelIn.setBounds(53, 226, 85, 16);
 		contentPane.add( LabelIn);
 		
 		textFieldIn = new JTextField();
-		textFieldIn.setBounds(180, 221, 116, 22);
+		textFieldIn.setBounds(186, 221, 116, 22);
 		contentPane.add(textFieldIn);
 		textFieldIn.setColumns(10);
 		
 		JLabel outlbl = new JLabel("Out-Time");
+		outlbl.setForeground(new Color(255, 255, 255));
 		outlbl.setFont(new Font("Stencil", Font.PLAIN, 15));
 		outlbl.setBounds(417, 226, 85, 16);
 		contentPane.add(outlbl);
@@ -96,19 +79,21 @@ public class ExitGate extends JFrame {
 		outtime.setColumns(10);
 		
 		JLabel dur= new JLabel("Duration");
+		dur.setForeground(new Color(255, 255, 255));
 		dur.setFont(new Font("Stencil", Font.PLAIN, 15));
 		dur.setBounds(53, 319, 85, 16);
 		contentPane.add(dur);
 		
 		JTextField txtdur= new JTextField();
-		txtdur.setBounds(180, 313, 116, 22);
+		txtdur.setBounds(186, 314, 116, 22);
 		contentPane.add(txtdur);
 		txtdur.setColumns(10);
 		
-		JLabel lblfee= new JLabel("Fee");
-		lblfee.setFont(new Font("Stencil", Font.PLAIN, 15));
-		lblfee.setBounds(417, 319, 56, 16);
-		contentPane.add(lblfee);
+		JLabel feeLb= new JLabel("Fee");
+		feeLb.setForeground(new Color(255, 255, 255));
+		feeLb.setFont(new Font("Stencil", Font.PLAIN, 15));
+		feeLb.setBounds(417, 319, 56, 16);
+		contentPane.add(feeLb);
 		
 		JTextField txtfee= new JTextField();
 		txtfee.setBounds(539, 316, 116, 22);
@@ -117,28 +102,28 @@ public class ExitGate extends JFrame {
 		
 		showB.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-            String licence=licencetext.getText();
-            DBSend db=new DBSend();
-            String[] res=db.exit(licence);
-            if(res != null) {
-            	textFieldIn.setText(res[1]);
-            	outtime.setText(res[2]);
-            	txtdur.setText(res[3]);
-            	txtfee.setText(Integer.toString(Integer.parseInt(res[3])*3) + "Rs");
-            } else {
-            	JOptionPane.showMessageDialog(null, "Car Not Found! Please Check the entered number");
+		        String licence=licencetext.getText();
+		        DBSend db=new DBSend();
+		        String[] res=db.exit(licence);
+		        if(res != null) {
+		        	textFieldIn.setText(res[1]);
+		        	outtime.setText(res[2]);
+		        	txtdur.setText(res[3]);
+		        	txtfee.setText(Integer.toString(Integer.parseInt(res[3])*3) + "Rs");
+		        } else {
+		        	JOptionPane.showMessageDialog(null, "Car Not Found! Please Check the entered number");
+	        	}
+		        	
             }
             	
-            }
-            	
-            });
+        });
 		exitB.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
             	System.exit(0);
             	dispose();	
             }
             	
-            });   
+        });   
 		
 	}
 }
