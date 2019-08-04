@@ -17,9 +17,5 @@ public class DB_conn {
 		return con;
 		
 	}
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}
 
 }

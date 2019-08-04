@@ -17,7 +17,7 @@ import javax.swing.JButton;
 public class EntryGate extends JFrame{
 
 	private JTable numTable;
-	private JLabel vacant;
+	private JLabel heading;
 	DBSend db = new DBSend();
 	int count= db.instance(),vacantSpace =db.total - count;
 	DefaultTableModel model;
@@ -43,7 +43,7 @@ public class EntryGate extends JFrame{
 		getContentPane().setLayout(null);
 		
 
-   
+		//to store data in table
 		 String[][] data = {};
 		  
 //		 // Column Names 
@@ -53,14 +53,14 @@ public class EntryGate extends JFrame{
 		 model.addRow(columnNames);
 		 numTable.setBounds(15,120, 448,140);
 		 numTable.getPreferredSize();
-
 		 
-		 vacant=new JLabel();
-		 vacant.setForeground(new Color(255, 255, 255));
-		 vacant.setText("Car Entry Check");
-		 vacant.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		 vacant.setBounds(133, 23,  263, 40);
-		 getContentPane().add(vacant);
+		 //heading
+		 heading=new JLabel();
+		 heading.setForeground(new Color(255, 255, 255));
+		 heading.setText("Car Entry Check");
+		 heading.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		 heading.setBounds(133, 23,  263, 40);
+		 getContentPane().add(heading);
 
 		getContentPane().add(numTable);
 		
@@ -69,6 +69,7 @@ public class EntryGate extends JFrame{
 		btnExit.setBounds(186, 288, 97, 25);
 		getContentPane().add(btnExit);
 		
+		 //vacant space counter
 		vacantLb = new JLabel("Vacant->" + vacantSpace);
 		vacantLb.setForeground(new Color(0, 255, 51));
 		vacantLb.setBounds(559, 144, 171, 29);
@@ -76,6 +77,7 @@ public class EntryGate extends JFrame{
 		vacantLb.setBackground(new Color(204, 255, 255));
 		vacantLb.setFont(new Font("Tahoma", Font.BOLD, 24));
 		
+		//filled space counter
 		countLb = new JLabel("Filled->" + count);
 		countLb.setForeground(new Color(255, 0, 0));
 		countLb.setBounds(559, 211, 155, 29);

@@ -10,14 +10,13 @@ public class ImageToText {
     	Tesseract tesseract = new Tesseract(); 
         try { 
   
+        	// the path of your tess data folder 
             tesseract.setDatapath("C:\\Users\\shime\\eclipse-workspace\\ParkingSpaceAnalyser" + "\\tessdata"); 
   
-            // the path of your tess data folder 
-            // inside the extracted file 
+            // path of your image file 
             String text 
                 = tesseract.doOCR(new File(location)); 
   
-            // path of your image file 
             //System.out.print(text); 
             return text;
         } 
